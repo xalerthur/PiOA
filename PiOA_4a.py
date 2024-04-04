@@ -1,5 +1,5 @@
 import sys
-
+import numpy as np
 print( "Вычисление определителя матрицы методом Доджсона (Льюис Кэрролл)" )
 
 # parse input string to matrix
@@ -85,3 +85,4 @@ matrix = parse_input(input_string)
 check_matrix(matrix)
 print_matrix(matrix)
 print("\nОпределитель матрицы: ", calculate(matrix))
+print(f"Expected: {np.linalg.det(np.array(matrix))}")

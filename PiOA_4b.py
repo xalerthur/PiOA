@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 
 print( "Вычисление определителя матрицы методом конденсации Чио при k = 1" )
 
@@ -96,3 +97,4 @@ matrix = parse_input(input_string)
 check_matrix(matrix)
 print_matrix(matrix)
 print("\nОпределитель матрицы: ", calculate(matrix))
+print(np.linalg.det(matrix))
