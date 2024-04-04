@@ -178,13 +178,14 @@ def strassen(x: np.matrix, y: np.matrix, depth: int = 0):
 	depth -= 1
 
 	print()
-
+	if curmatrixstep == 1:
+		globalmatrixstep = 0
 	return c
 
 def main():
 
 	print( "Результат перемножения:\n", strassen( matA, matB ) )
-
+	print(matA * matB)
 	print('\n(Умножаемые матрицы задаются через изменение "matA" и "matB" в начале файла исходного кода!)')
 
 if __name__ == '__main__':
