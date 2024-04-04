@@ -47,11 +47,12 @@ def npmatrixp( mdata ) -> str:
 	return (mdata.tolist() if len(mdata) > 1 else mdata[0, 0])
 
 def __printstrassen( text, mdata, depth: int = 0 ) -> str:
+	# return
 	if type(mdata) == np.matrix:
 		arg3 = npmatrixp( mdata )
 	elif type(mdata) == list and len(mdata) > 1:
 		arg3 = mdata[0]
-	elif mdata == None:
+	elif mdata is None:
 		arg3 = ''
 	else:
 		arg3 = mdata
@@ -180,6 +181,11 @@ def strassen(x: np.matrix, y: np.matrix, depth: int = 0):
 
 	return c
 
-print( "Результат перемножения:\n", strassen( matA, matB ) )
+def main():
 
-print('\n(Умножаемые матрицы задаются через изменение "matA" и "matB" в начале файла исходного кода!)')
+	print( "Результат перемножения:\n", strassen( matA, matB ) )
+
+	print('\n(Умножаемые матрицы задаются через изменение "matA" и "matB" в начале файла исходного кода!)')
+
+if __name__ == '__main__':
+	main()
