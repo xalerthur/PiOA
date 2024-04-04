@@ -10,16 +10,18 @@ from PiOA_3a import strassen
 class TestPiOA_3a(unittest.TestCase):
 
     def test_matrix(self):
+        #test1()
+        #return
         # define random matrix
         matA = np.random.randint(10, size=(4, 4))
         matB = np.random.randint(10, size=(4, 4))
 
         res = strassen(matA, matB)
         expected = matA * matB
-        print(matA)
-        print(matB)
-        print(res)
-        print(expected)
+        print(matA, "← Orig matrix A" )
+        print(matB, "← Orig matrix B" )
+        print(res, "← Strassen result")
+        print(expected, "← Expected result" )
         # self.assertEqual(strassen(matA, matB), matA * matB)
         self.assertTrue(np.array_equal(res, expected))   
 
@@ -39,6 +41,11 @@ class TestPiOA_3a(unittest.TestCase):
 
         res = strassen(matA, matB)
         expected = matA * matB
+        print( "====" )
+        print(matA, "← Orig matrix A" )
+        print(matB, "← Orig matrix B" )
+        print(res, "← Strassen result")
+        print(expected, "← Expected result" )
         self.assertTrue(np.array_equal(res, expected))  
 
     def test2(self):
@@ -64,4 +71,5 @@ if __name__ == '__main__':
     print(sys.path)
     # sys.path.insert(1, os.getcwd())
 
+	# Calls all methods which start from the "test" sequence (https://docs.python.org/3/library/unittest.html):
     unittest.main()
