@@ -48,7 +48,7 @@ def npmatrixp( mdata ) -> str:
 
 def __printstrassen( text, mdata, depth: int = 0 ) -> str:
 	# return
-	if type(mdata) == np.matrix:
+	if isinstance(mdata, (np.ndarray, np.matrix)):
 		arg3 = npmatrixp( mdata )
 	elif type(mdata) == list and len(mdata) > 1:
 		arg3 = mdata[0]
