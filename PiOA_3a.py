@@ -77,7 +77,7 @@ def __strassen_nextp( pnum: int, e1str: str, e2str: str, depth: int ) -> int:
 
 
 globalmatrixstep = 0
-
+mul_count = 0
 
 def strassen(x: np.matrix, y: np.matrix, depth: int = 0):
 	"""
@@ -90,7 +90,10 @@ def strassen(x: np.matrix, y: np.matrix, depth: int = 0):
 	printstrassen = lambda text, mdata=None, depthofs=0 : __printstrassen( text, mdata, depth + depthofs )
 
 	# Base case when shape is 1x1
+	global mul_count
 	if len(x) == 1:
+		if not (x[0,0] in (0,1,10,100) or y[0,0] in (0,1,10,100)):
+			mul_count += 1
 		return x * y
 
 	global globalmatrixstep
@@ -186,6 +189,7 @@ def main():
 
 	print( "Результат перемножения:\n", strassen( matA, matB ) )
 	print(matA * matB)
+	print(f'Количество уножений: {mul_count}')
 	print('\n(Умножаемые матрицы задаются через изменение "matA" и "matB" в начале файла исходного кода!)')
 
 if __name__ == '__main__':
