@@ -38,9 +38,15 @@ for step in range(len(br)):
             levels[-1].append(sa * sb)
         lev_str.append(''.join(map(lambda x: f'{x:0>2}', levels[-1])))
     else:
+        add = 0
         for shifted_idx in range(len(br) - step):
             levels[-1].append(ar[shifted_idx] * br[shifted_idx + step] \
                 + ar[shifted_idx + step] * br[shifted_idx])
+            if shifted_idx != 0:
+                add = levels[-1][-1] // 100
+                levels[-1][-1] %= 100
+
+                levels[-1][shifted_idx - 1] += add
         lev_str.append(''.join(map(lambda x: f'{x:0>2}', levels[-1]))+'0'*step)
 
 res = sum(map(int, lev_str))
