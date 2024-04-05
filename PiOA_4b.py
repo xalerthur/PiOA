@@ -1,5 +1,4 @@
 import sys
-import numpy as np
 
 print( "Вычисление определителя матрицы методом конденсации Чио при k = 1" )
 
@@ -55,12 +54,15 @@ def calculate(matrix):
         minor_i = 0
         minor_j = 0
 
+
         for i in range(matrix_size):
             for j in range(matrix_size):
                 if abs(matrix[i][j]) < abs(min_val) and matrix[i][j] != 0:
                     min_val = matrix[i][j]
                     minor_i = i
                     minor_j = j
+
+        print(f'Minor ({minor_i}, {minor_j}) = {min_val}')
 
         # calculate new matrix
         count_i = 0
@@ -77,10 +79,10 @@ def calculate(matrix):
             count_i += 1
             count_j = 0
 
-        print_matrix(new_matrix, factor, step)
-
-        matrix = new_matrix
         factor *= min_val**(matrix_size-2)
+
+        print_matrix(new_matrix, factor, step)
+        matrix = new_matrix
 
     return (1/factor)*matrix[0][0]
 
@@ -97,4 +99,3 @@ matrix = parse_input(input_string)
 check_matrix(matrix)
 print_matrix(matrix)
 print("\nОпределитель матрицы: ", calculate(matrix))
-print(np.linalg.det(matrix))
