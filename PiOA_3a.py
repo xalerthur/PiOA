@@ -92,8 +92,11 @@ def strassen(x: np.matrix, y: np.matrix, depth: int = 0):
 	# Base case when shape is 1x1
 	global mul_count
 	if len(x) == 1:
-		if not (x[0,0] in (0,1,10,100) or y[0,0] in (0,1,10,100)):
+		is_elementary_mul = lambda val: (abs(val) == 1) or (val % 10 == 0)
+
+		if not is_elementary_mul(x[0,0]) and not is_elementary_mul(y[0,0]):
 			mul_count += 1
+
 		return x * y
 
 	global globalmatrixstep
@@ -189,7 +192,7 @@ def main():
 
 	print( "Результат перемножения:\n", strassen( matA, matB ) )
 	print(matA * matB)
-	print(f'Количество уножений: {mul_count}')
+	print(f'Количество уножений (исключая 0 и 10^n): {mul_count}')
 	print('\n(Умножаемые матрицы задаются через изменение "matA" и "matB" в начале файла исходного кода!)')
 
 if __name__ == '__main__':
