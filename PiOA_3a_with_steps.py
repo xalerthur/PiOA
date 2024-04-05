@@ -5,7 +5,7 @@ count = 0
 lastCount = 0
 
 def isNorm(a):
-	if np.any((a == 0) | (a == 1) | (a == 10) | (a == 100)):
+	if abs(a) == 1 or abs(a) % 10 == 0:
 		return False
 	return True
 
@@ -30,18 +30,17 @@ def amountOfOp(matA_, matB_):
 	if isNorm(matA_[1, 1]) and isNorm(matB_[1, 1]):
 		lastCount += 1
 	count += lastCount
-
-matA = np.array( [
-	[2, 0, 1, 2],
-	[0, 2, 1, 0],
-	[1, 2, 0, 2],
-	[2, 0, 1, 0]
+matA = np.matrix( [
+	[0, 1, 2, -1],
+	[3, 2, 0, 1],
+	[1, -1, 2, 0],
+	[1, 2, 3, 1]
 ] )
-matB = np.array( [
-	[0, 1, 1, 0],
-	[2, 1, 0, 2],
-	[2, 0, 2, 2],
-	[0, 2, 0, 1]
+matB = np.matrix( [
+	[0, -1, 1, 1],
+	[3, 2, 0, 2],
+	[2, 1, -2, 3],
+	[1, 3, 2, 0]
 ] )
 
 matA11 = np.array( [[matA[0, 0], matA[0, 1]], [matA[1, 0], matA[1, 1]]] )
