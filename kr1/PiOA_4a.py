@@ -2,6 +2,13 @@ import sys
 import numpy as np
 print( "Вычисление определителя матрицы методом Доджсона (Льюис Кэрролл)" )
 
+mat = np.array([
+	[4, 1, 1, 1],
+	[2, 2, 6, 2],
+	[1, 1, 2, 0],
+	[1, 0, 2, 1],
+])
+
 # parse input string to matrix
 def parse_input(input_string):
     
@@ -80,9 +87,10 @@ def print_matrix(matrix, step=0):
 
 # input_string = "1 0 -2 3 2; -1 -3 2 -2 0; -3 -2 2 -1 1; -2 3 -1 2 0; 0 -3 1 -1 -3"
 
-input_string = input("\nВведите матрицу через пробелы и точку с запятой между строками: \n>")
-matrix = parse_input(input_string)
-check_matrix(matrix)
-print_matrix(matrix)
-print("\nОпределитель матрицы: ", calculate(matrix))
-print(f"Expected: {np.linalg.det(np.array(matrix))}")
+# input_string = input("\nВведите матрицу через пробелы и точку с запятой между строками: \n>")
+# matrix = parse_input(input_string)
+# check_matrix(matrix)
+# print_matrix(matrix)
+# print("\nОпределитель матрицы: ", calculate(matrix))
+print("\nОпределитель матрицы: ", calculate(mat))
+print(f"Expected: {np.linalg.det(np.array(mat))}")

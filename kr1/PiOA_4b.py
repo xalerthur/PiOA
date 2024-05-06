@@ -1,7 +1,13 @@
 import sys
-
+import numpy as np
 print( "Вычисление определителя матрицы методом конденсации Чио при k = 1" )
 
+mat = np.array([
+	[3, 1, 0, 1],
+	[0, 2, 4, 2],
+	[0, 1, 2, 0],
+	[1, 0, 1, 1],
+])
 # parse input string to matrix
 def parse_input(input_string):
     
@@ -94,8 +100,8 @@ def print_matrix(matrix, factor=1, step=0):
 
 # input_string = "2 0 3 -2 3; 0 2 1 0 -2; 1 2 0 2 -2; -2 0 -3 0 3; -3 -3 2 3 2"
 
-input_string = input("\nВведите матрицу через пробелы и точку с запятой между строками: \n>")
-matrix = parse_input(input_string)
-check_matrix(matrix)
-print_matrix(matrix)
-print("\nОпределитель матрицы: ", calculate(matrix))
+# input_string = input("\nВведите матрицу через пробелы и точку с запятой между строками: \n>")
+# matrix = parse_input(input_string)
+# check_matrix(matrix)
+# print_matrix(matrix)
+print("\nОпределитель матрицы: ", calculate(mat))
