@@ -28,14 +28,14 @@ for i, ch in enumerate(name):
 	if code is not None:
 		n[i] = code
 		w[i] = (code%8)+1
-		for div in range(code, 33):
+		for div in range(code, 33+8):
 			if div%w[i] == 0:
 				v[i] = div
 				break
 		if v[i] is None:
-			print(f'v[{i}] не может быть найдена')
+			print(f'v[{i}] не может быть найдена. Выход за теоретический предел подбора')
 			exit(2)
-	else:
+	else:                
 		print(f'Пропуск "{ch}"')
 
 def printlist(title, lst):
