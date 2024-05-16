@@ -7,8 +7,8 @@ letters = {
 }
 
 name = input('Фамилия Имя (пробелы и повторы букв удалятся): ')
-name = "".join(dict.fromkeys(name))
-name = name.replace(' ','').upper()
+name = name.upper()
+name = "".join(dict.fromkeys(name)).replace(' ','')
 if len(name)==0:
 	print("Строки нет")
 	exit(1)
